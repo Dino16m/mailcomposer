@@ -11,10 +11,10 @@ public request for it.
 # INSTALLATION
 + Install mailify using pip or clone the github repo.
 + Add ***'mailify'*** to INSTALLED_APPS list in the Django settings file
-	-This app is dependent on the Django settings `BASE_DIR`
+	- This app is dependent on the Django settings `BASE_DIR`
 
 # USAGE
-	mailify --indir --outdir --infile --outfile --stylepath --network
+	python manage.py mailify --indir --outdir --infile --outfile --stylepath --network
 
 `--indir` is the directory containing the html files to be inlined relative to your project root,
 if this directory has sub folders,
