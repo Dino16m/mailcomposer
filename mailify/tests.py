@@ -1,10 +1,14 @@
 from io import StringIO
 from django.core.management import call_command
-from django.test import TestCase
+from django.test import TestCase, override_settings
 from django.conf import settings
 import os
 
-class MailifyTest(TestCase):
+__BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+@override_settings(BASE_DIR=__BASE_DIR)
+class MailifyTest(TestCase):	
+
 	def untab(self, string):
 		replacement_list = ['\n', '\t']
 		for s in replacement_list:
@@ -23,7 +27,7 @@ class MailifyTest(TestCase):
 
 	def test_infile_only(self):
 		out = StringIO()
-		infile = 'mailify/test_templates/mails/indir/mail1.html'
+		infile = 'test_templates/mails/indir/mail1.html'
 		orig_mail = self.read_file(infile)
 		call_command('mailify', infile=infile, stdout=out)
 		self.write_file(infile, orig_mail)
@@ -34,8 +38,8 @@ class MailifyTest(TestCase):
 
 	def test_infile_outfile(self):
 		out = StringIO()
-		infile = 'mailify/test_templates/mails/indir/mail1.html'
-		outfile = 'mailify/test_templates/mails/outdir/mail1.html'
+		infile = 'test_templates/mails/indir/mail1.html'
+		outfile = 'test_templates/mails/outdir/mail1.html'
 		call_command('mailify', infile=infile, outfile=outfile, stdout=out)
 		self.assertIn("Styles in {} have been inlined".format(os.path.join(settings.BASE_DIR, infile)), out.getvalue())
 		self.assertTrue(
@@ -44,7 +48,7 @@ class MailifyTest(TestCase):
 
 	def test_indir_only_unnested(self):
 		out = StringIO()
-		indir = 'mailify/test_templates/mails/indir/submails'
+		indir = 'test_templates/mails/indir/submails'
 		orig_mail1 = self.read_file(os.path.join(settings.BASE_DIR, indir, 'mail1.html'))
 		orig_mail2 = self.read_file(os.path.join(settings.BASE_DIR, indir, 'mail2.html'))
 		orig_mail3 = self.read_file(os.path.join(settings.BASE_DIR, indir, 'mail3.html'))
@@ -69,8 +73,8 @@ class MailifyTest(TestCase):
 
 	def test_indir_outdir_unnested(self):
 		out = StringIO()
-		indir = 'mailify/test_templates/mails/indir/submails'
-		outdir = 'mailify/test_templates/mails/outdir/submails'
+		indir = 'test_templates/mails/indir/submails'
+		outdir = 'test_templates/mails/outdir/submails'
 		orig_mail1 = self.read_file(os.path.join(settings.BASE_DIR, indir, 'mail1.html'))
 		orig_mail2 = self.read_file(os.path.join(settings.BASE_DIR, indir, 'mail2.html'))
 		orig_mail3 = self.read_file(os.path.join(settings.BASE_DIR, indir, 'mail3.html'))
@@ -95,7 +99,7 @@ class MailifyTest(TestCase):
 
 	def test_indir_only_nested(self):
 		out = StringIO()
-		indir = 'mailify/test_templates/mails/indir'
+		indir = 'test_templates/mails/indir'
 		orig_mail1 = self.read_file(os.path.join(settings.BASE_DIR, indir, 'mail1.html'))
 		orig_mail2 = self.read_file(os.path.join(settings.BASE_DIR, indir, 'mail2.html'))
 		orig_mail3 = self.read_file(os.path.join(settings.BASE_DIR, indir, 'mail3.html'))
@@ -132,8 +136,8 @@ class MailifyTest(TestCase):
 
 	def indir_outdir_nested(self):
 		out = StringIO()
-		indir = 'mailify/test_templates/mails/indir'
-		outdir = 'mailify/test_templates/mails/outdir'
+		indir = 'test_templates/mails/indir'
+		outdir = 'test_templates/mails/outdir'
 		orig_mail1 = self.read_file(os.path.join(settings.BASE_DIR, indir, 'mail1.html'))
 		orig_mail2 = self.read_file(os.path.join(settings.BASE_DIR, indir, 'mail2.html'))
 		orig_mail3 = self.read_file(os.path.join(settings.BASE_DIR, indir, 'mail3.html'))
