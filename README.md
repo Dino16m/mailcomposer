@@ -19,7 +19,8 @@ public request for it.
 `--indir` is the directory containing the html files to be inlined relative to your project root,
 if this directory has sub folders,
 html files therein will also have their CSS inlined.
-**NOTE**: indir goes with outdir, which specifies the path also relative to your project root where 
+
++ **NOTE**: indir goes with outdir, which specifies the path also relative to your project root where 
 output html will be stored, however, if no output dir is specified, the files in the indir will be overwritten with the html files.
 
 `--outdir` is the directory where the output files will be stored.
