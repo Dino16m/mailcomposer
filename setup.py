@@ -3,7 +3,7 @@ setup(
   name='mailify',        
   packages=['mailify'],   # Chose the same as "name"
   package_dir={'': ''},
-  version='v1.0.0',      # Start with a small number and increase it with every change you make
+  version='v1.0.1',      # Start with a small number and increase it with every change you make
   license='MIT',        # Chose a license from here: https://help.github.com/articles/licensing-a-repository
   description='Inlines css styles in html documents to make them usable in emails.',   # Give a short description about your library
   author='Darlington Onyemere', 
