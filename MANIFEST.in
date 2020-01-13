@@ -1,0 +1,2 @@
+graft mailify/management
+graft mailify/tst_templates
