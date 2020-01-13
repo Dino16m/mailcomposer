@@ -9,7 +9,7 @@ setup(
   author='Darlington Onyemere', 
   author_email='anselem16m@gmail.com',     
   url='https://github.com/dino16m/mailify',   # Provide either the link to your github or to your website
-  download_url='https://github.com/Dino16m/mailify/archive/v1.0.tar.gz',   
+  download_url='https://github.com/Dino16m/mailify/archive/v1.0.1.tar.gz',   
   keywords=['Styles', 'CSS', 'Email', 'Django'],   # Keywords that define your package best
   install_requires=[            # I get to this in a second
           'Django==3.0',
