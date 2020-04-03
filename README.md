@@ -1,4 +1,4 @@
-# Documentation for mailify.
+# Documentation for mailcomposer.
 # mailcomposer is a light wrapper to [premailer](https://pypi.org/project/premailer/) for use in Django projects.
 
 It inlines css styles in html documents to make them usable in emails.
