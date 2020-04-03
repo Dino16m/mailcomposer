@@ -1,5 +1,5 @@
 # Documentation for mailify.
-# mailify is a light wrapper to [premailer](https://pypi.org/project/premailer/) for use in Django projects.
+# mailcomposer is a light wrapper to [premailer](https://pypi.org/project/premailer/) for use in Django projects.
 
 It inlines css styles in html documents to make them usable in emails.
 It can inline css in single html files or all the html files in a directory.
@@ -10,11 +10,11 @@ public request for it.
 
 # INSTALLATION
 + Install mailify using pip or clone the github repo.
-+ Add ***'mailify'*** to INSTALLED_APPS list in the Django settings file
++ Add ***'mailcomposer'*** to INSTALLED_APPS list in the Django settings file
 	- This app is dependent on the Django settings `BASE_DIR`
 
 # USAGE
-	python manage.py mailify --indir --outdir --infile --outfile --stylepath --network
+	python manage.py mailcomposer --indir --outdir --infile --outfile --stylepath --network
 
 `--indir` is the directory containing the html files to be inlined relative to your project root,
 if this directory has sub folders,
